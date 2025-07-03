@@ -1,15 +1,15 @@
 import java.util.Set;
 
 import controller.ContactoController;
-import controller.Setsx;
+import controller.Sets;
+import controller.Ejercicios;
 import models.Contacto;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Setsx sets = new Setsx();
+        Sets sets = new Sets();
         ContactoController contactoController = new ContactoController();   
 
-        // Imprimir contactos por apellido y nombre
         System.out.println("Contactos ordenados por apellido - nombre:");
         Set<Contacto> porApellidoNombre = contactoController.getContactosPorApellidoNombre();
         for (Contacto c : porApellidoNombre) {
@@ -17,12 +17,27 @@ public class App {
         }
         System.out.println("----------------------------");
 
-        // Imprimir contactos por apellido, nombre y teléfono
         System.out.println("Contactos ordenados por apellido - nombre - teléfono:");
         Set<Contacto> porApellidoNombreTelefono = contactoController.getContactosPorApellidoNombreTelefono();
         for (Contacto c : porApellidoNombreTelefono) {
             System.out.println(c.getApellido() + " - " + c.getNombre() + " - " + c.getTelefono());
         }
+        System.out.println("----------------------------");
+
+        Ejercicios ejercicios = new Ejercicios();  
+
+        System.out.println("Verificación de duplicados:");
+        System.out.println("[1, 2, 3, 4, 5] => " + ejercicios.tieneDuplicados(new int[]{1, 2, 3, 4, 5}));
+        System.out.println("[1, 2, 3, 4, 5, 4, 3, 2, 45] => " + ejercicios.tieneDuplicados(new int[]{1, 2, 3, 4, 5, 4, 3, 2, 45}));
+        System.out.println("----------------------------");
+
+        System.out.println("Verificación de isogramas:");
+        System.out.println("murcielago => " + ejercicios.esIsograma("murcielago"));
+        System.out.println("camaleon => " + ejercicios.esIsograma("camaleon"));
+        System.out.println("----------------------------");
+
+        System.out.println("Conteo de palabras únicas en texto:");
+        System.out.println("Cantidad de palabras únicas: " + ejercicios.contarPalabrasUnicas(ejercicios.texto));
         System.out.println("----------------------------");
 
         // Lo demás que ya estaba

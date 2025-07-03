@@ -6,9 +6,9 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.Comparator;
 
-public class Setsx {
+public class Sets {
 
-    public Setsx() {
+    public Sets() {
     }
 
     public Set<String> construirHashSet() {
